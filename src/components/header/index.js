@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import propertyData from "@/data/propertydata";
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,10 +38,22 @@ const Header = () => {
                     Listing
                   </Link>
                 </li>
-                <li>
-                  <Link className="nav-link" href="/property">
+                <li className="nav-item submenu">
+                  <Link className="nav-link" href="#">
                     Property
                   </Link>
+                  <ul>
+                    {propertyData.map((property) => (
+                      <li className="nav-item" key={property.slug}>
+                        <Link
+                          className="nav-link"
+                          href={`/property/${property.slug}`}
+                        >
+                          {property.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
                 <li class="nav-item submenu">
                   <Link class="nav-link" href="#">

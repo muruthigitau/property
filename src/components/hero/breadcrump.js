@@ -1,8 +1,22 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Breadcrumb = () => {
   const router = useRouter();
+
+  // State to determine if the component is mounted
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // Set isClient to true when the component is mounted on the client side
+    setIsClient(true);
+  }, []);
+
+  // If not client, return null to avoid rendering on the server
+  if (!isClient) {
+    return null;
+  }
 
   // Get the current route
   const currentPath = router.asPath.split("/").filter(Boolean); // Split the URL and remove empty parts
