@@ -1,0 +1,128 @@
+[
+  {
+    "category": "Food & Beverage",
+    "shops": 5,
+    "cta": "See More"
+  },
+  {
+    "category": "Home & Living",
+    "shops": 2,
+    "cta": "See More"
+  },
+  {
+    "category": "Electronics & Lifestyle",
+    "shops": 2,
+    "cta": "See More"
+  },
+  {
+    "category": "Health & Wellness",
+    "shops": 2,
+    "cta": "See More"
+  },
+  {
+    "category": "Fuel & Convenience",
+    "shops": 0,
+    "cta": "See More"
+  }
+]
+azone-appliance-zone.png
+african-magic.png
+buble-moon-cafe.jfif
+carpetpoint.png
+Chandarana-Foodplus.jpg
+chicken-cottage.png
+thecrazystore.png
+drmattress.jfif
+total.jfif
+The-Whisky-Shop.jpg
+the-goat-karen.png
+cary's-salon.jfif
+Papa_John's_Pizza.png
+optica.png
+lorenzo-drycleaners.png
+lifemed-pharmacy.jfif
+
+
+regional-forex-bureau.png
+buble-moon-cafe.png
+visage-asthetics.png
+carpet-point.png
+optica-1.png
+lorenzo-dry-cleaners.png
+the-whisky-shop.png
+chandarana-foodplus.png
+drmattress.png
+mika.png
+the-g.o.a.t-karen.png
+papa-john's-pizza.png
+chicken-cottage-1.png
+cary's-salon-barber-salon.png
+the-crazy-store.png
+
+
+
+[
+    {
+      "category": "Food & Beverage",
+      "shops": [
+        "buble-moon-cafe.jfif",
+        "Papa_John's_Pizza.png",
+        "papa-john's-pizza.png",
+        "chicken-cottage.png",
+        "chicken-cottage-1.png",
+        "the-goat-karen.png",
+        "the-g.o.a.t-karen.png",
+        "chandarana-foodplus.png",
+        "Chandarana-Foodplus.jpg"
+      ],
+      "cta": "See More"
+    },
+    {
+      "category": "Home & Living",
+      "shops": [
+        "drmattress.jfif",
+        "drmattress.png",
+        "carpetpoint.png",
+        "carpet-point.png",
+        "thecrazystore.png",
+        "the-crazy-store.png",
+    ],
+    "cta": "See More"
+},
+{
+    "category": "Electronics & Lifestyle",
+    "shops": [
+        "azone-appliance-zone.png",
+        "mika.png",
+        "lorenzo-dry-cleaners.png",
+        "lorenzo-drycleaners.png",
+        "cary's-salon.jfif",
+        "cary's-salon-barber-salon-1.png",
+        "cary's-salon-barber-salon.png"
+        "african-magic-deo.png"
+      ],
+      "cta": "See More"
+    },
+    {
+      "category": "Health & Wellness",
+      "shops": [
+        "optica.png",
+        "optica-1.png",
+        "visage-asthetics.png",
+        "lifemed-pharmacy.jfif"
+      ],
+      "cta": "See More"
+    },
+    {
+      "category": "Fuel & Convenience Shopping",
+      "shops": [
+        "total.jfif",
+        "regional-forex-bureau.png",
+        "chandarana-foodplus.png",
+        "The-Whisky-Shop.jpg",
+        "the-whisky-shop.png",
+      ],
+      "cta": "See More"
+    }
+  ]
+  

@@ -66,7 +66,7 @@ const MainAbout = () => {
                     animationName: "fadeInUp",
                   }}
                 >
-                  About MyTown Karen
+                  About Mytown Karen
                 </h3>
                 <h2 className="text-anime">
                   <div
@@ -137,7 +137,7 @@ const MainAbout = () => {
                     animationName: "fadeInUp",
                   }}
                 >
-                  MyTown Karen is more than just a shopping destination—it's a
+                  Mytown Karen is more than just a shopping destination—it's a
                   vibrant community hub. Whether you're here to shop, dine, or
                   connect, our modern facilities and curated experiences offer
                   something for everyone. Discover a space where convenience,

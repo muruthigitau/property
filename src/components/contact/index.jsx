@@ -1,92 +1,10 @@
 import { Link } from "react-router-dom";
-
+import Breadcrumb from "../hero/breadcrump";
 
 const Contact = () => {
   return (
     <>
-      <div
-        className="page-header parallaxie"
-        style={{
-          backgroundImage: 'url("/images/hero.jpg")',
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center 35.1px",
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              {/* Subpage Header Box Start */}
-              <div className="page-header-box">
-                <h1 className="text-anime">
-                  <div
-                    className="line"
-                    style={{
-                      display: "block",
-                      textAlign: "center",
-                      width: "100%",
-                    }}
-                  >
-                    <div className="word" style={{ display: "inline-block" }}>
-                      {"Contact".split("").map((char, index) => (
-                        <div
-                          key={`contact-${index}`}
-                          className="char"
-                          style={{
-                            display: "inline-block",
-                            opacity: 1,
-                            visibility: "inherit",
-                            transform: "translate(0px, 0px)",
-                          }}
-                        >
-                          {char}
-                        </div>
-                      ))}
-                    </div>
-                    <div className="word" style={{ display: "inline-block" }}>
-                      {"us".split("").map((char, index) => (
-                        <div
-                          key={`us-${index}`}
-                          className="char"
-                          style={{
-                            display: "inline-block",
-                            opacity: 1,
-                            visibility: "inherit",
-                            transform: "translate(0px, 0px)",
-                          }}
-                        >
-                          {char}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </h1>
-                <nav
-                  className="wow fadeInUp"
-                  data-wow-delay="0.25s"
-                  style={{
-                    visibility: "visible",
-                    animationDelay: "0.25s",
-                    animationName: "fadeInUp",
-                  }}
-                >
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      Contact us
-                    </li>
-                  </ol>
-                </nav>
-              </div>
-              {/* Subpage Header Box End */}
-            </div>
-          </div>
-        </div>
-      </div>
-
+     <Breadcrumb image="/images/banner/contact.png" title="Contact Us" />
       <div className="contact-details">
         <div className="container">
           <div className="row">
@@ -101,19 +19,19 @@ const Contact = () => {
           <div className="row">
             {[
               {
-                icon: "/images/icon-address.svg",
+                icon: "/images/icon-location.svg",
                 title: "Address",
-                detail: "131 Martens Place, Alexandra Hills, Australia.",
+                detail: "Mytown Mall, Karen, Nairobi, Kenya",
               },
               {
                 icon: "/images/icon-contactno.svg",
                 title: "Phone",
-                detail: "(+0) 123 456 789\n(+1) 789 456 789",
+                detail: "0759089942",
               },
               {
                 icon: "/images/icon-email-address.svg",
                 title: "Email",
-                detail: "Info@domainname.com\nsales@domainname.com",
+                detail: "info@mytown.co.ke",
               },
             ].map((item, idx) => (
               <div className="col-md-4" key={idx}>
@@ -223,15 +141,7 @@ const Contact = () => {
                 className="google-map-box wow fadeInUp"
                 data-wow-delay="0.5s"
               >
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1116357.3481785401!2d-95.54669749945178!3d39.389498766353576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sin!4v1707738120250!5m2!1sen!2sin"
-                  width="600"
-                  height="450"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15954.928536664542!2d36.7248863!3d-1.3369743!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b6738a846b9%3A0x773dc1925e3c18c7!2sMytown%20Mall%20Karen!5e0!3m2!1sen!2ske!4v1744183918913!5m2!1sen!2ske" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>

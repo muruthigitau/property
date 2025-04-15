@@ -1,29 +1,20 @@
 import { Link } from "react-router-dom";
-import propertyData from "@/data/propertydata";
+import shopData from "@/data/shopData";
 
 const Listing = () => {
   return (
     <div className="page-property-listing">
       <div className="container">
         <div className="row">
-          <div className="col-lg-8">
-            {/* Property Listings Start */}
+          <div className="col-lg-12">
+            {/* Property Categories Start */}
             <div className="property-listings">
               <div className="row">
-                {propertyData.map((property, index) => {
-                  const {
-                    slug,
-                    images,
-                    title,
-                    location,
-                    storeSize,
-                    unitsAvailable,
-                    parkingSpaces,
-                    features,
-                  } = property;
+                {shopData.map((category, index) => {
+                  const { name, slug, image, tag, description } = category;
 
                   return (
-                    <div className="col-md-6" key={slug}>
+                    <div className="col-md-4" key={slug}>
                       <div
                         className="property-item wow fadeInUp"
                         data-wow-delay={`${0.25 + index * 0.25}s`}
@@ -33,86 +24,30 @@ const Listing = () => {
                           animationName: "fadeInUp",
                         }}
                       >
-                        {/* Image and Type */}
+                        {/* Category Header */}
                         <div className="property-header">
                           <figure className="image-anime">
                             <img
-                              src={images[0]}
-                              alt={title}
+                              src={image}
+                              alt={name}
                               width="400"
                               height="300"
                               style={{ width: "100%", height: "auto" }}
                             />
                           </figure>
-                          <span className="property-label">For Sale</span>
+                          <span className="property-label">{tag}</span>
                         </div>
 
-                        {/* Property Body */}
+                        {/* Category Body */}
                         <div className="property-body">
-                          <h3>{title}</h3>
-                          <p>{location}</p>
-
-                          <div className="property-meta">
-                            <div className="property-amenity-item">
-                              <div className="icon-box">
-                                <img
-                                  src="/images/icon-area.svg"
-                                  alt="Area icon"
-                                  width="20"
-                                  height="20"
-                                />
-                              </div>
-                              <span>{storeSize}</span>
-                            </div>
-
-                            <div className="property-amenity-item">
-                              <div className="icon-box">
-                                <img
-                                  src="/images/icon-badroom.svg"
-                                  alt="Units Available icon"
-                                  width="20"
-                                  height="20"
-                                />
-                              </div>
-                              <span>
-                                {unitsAvailable} Unit
-                                {unitsAvailable !== 1 ? "s" : ""}
-                              </span>
-                            </div>
-
-                            <div className="property-amenity-item">
-                              <div className="icon-box">
-                                <img
-                                  src="/images/icon-garage.svg"
-                                  alt="Parking icon"
-                                  width="20"
-                                  height="20"
-                                />
-                              </div>
-                              <span>
-                                {parkingSpaces} Parking Space
-                                {parkingSpaces !== 1 ? "s" : ""}
-                              </span>
-                            </div>
-
-                            <div className="property-amenity-item">
-                              <div className="icon-box">
-                                <img
-                                  src="/images/icon-bathroom.svg"
-                                  alt="Features icon"
-                                  width="20"
-                                  height="20"
-                                />
-                              </div>
-                              <span>{features.join(", ")}</span>
-                            </div>
-                          </div>
+                          <h3>{name}</h3>
+                          <p>{description}</p>
                         </div>
 
                         {/* Footer */}
                         <div className="property-footer">
                           <Link to={`/shop/${slug}`} className="btn-default">
-                            View Shop
+                            View Shops
                           </Link>
                         </div>
                       </div>
@@ -120,49 +55,12 @@ const Listing = () => {
                   );
                 })}
               </div>
-
-              {/* Pagination */}
-              <div className="row">
-                <div className="col-md-12">
-                  <div
-                    className="post-pagination wow fadeInUp"
-                    data-wow-delay="1.5s"
-                    style={{
-                      visibility: "visible",
-                      animationDelay: "1.5s",
-                      animationName: "fadeInUp",
-                    }}
-                  >
-                    <ul className="pagination">
-                      <li>
-                        <Link to="#">
-                          <i className="fa-solid fa-arrow-left-long"></i>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="#">1</Link>
-                      </li>
-                      <li className="active">
-                        <Link to="#">2</Link>
-                      </li>
-                      <li>
-                        <Link to="#">3</Link>
-                      </li>
-                      <li>
-                        <Link to="#">
-                          <i className="fa-solid fa-arrow-right-long"></i>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
             </div>
-            {/* Property Listings End */}
+            {/* Property Categories End */}
           </div>
 
           {/* Sidebar */}
-          <div className="col-lg-4">
+          {/* <div className="col-lg-4">
             <div className="property-sidebar">
               <div
                 className="expert-help-box wow fadeInUp"
@@ -270,7 +168,7 @@ const Listing = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* Sidebar End */}
         </div>
       </div>

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const Copyright = () => {
-  const currentYear = new Date().getFullYear();
 
   return (
     <div className="footer-copyright-links">
@@ -10,7 +9,16 @@ const Copyright = () => {
           <div className="col-md-6">
             {/* Footer Copyright Content Start */}
             <div className="footer-copyright">
-              <p>Copyright © {currentYear}. All rights reserved.</p>
+            <p>
+              Copyright &copy; {new Date().getFullYear()} All Rights Reserved. | Designed with ❤️ by 
+              <a href="https://softleek.com/" target="_blank" rel="noopener noreferrer">
+              </a> 
+              {" "}
+              <a href="https://mslabdesigns.com/" target="_blank" rel="noopener noreferrer">
+                Mslabdesigns
+              </a>
+            </p>
+
             </div>
             {/* Footer Copyright Content End */}
           </div>
@@ -20,13 +28,13 @@ const Copyright = () => {
             <div className="footer-policy-links">
               <ul>
                 <li>
-                  <Link to="/privacy-policy" aria-label="Privacy Policy">
+                  <Link to="/" aria-label="Privacy Policy">
                     Privacy & Policy
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/terms-and-conditions"
+                    to="/"
                     aria-label="Terms and Conditions"
                   >
                     Terms & Condition

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const PropertyListing = ({}) => {
   return (
     <Layout>
-      <Breadcrumb />
+      <Breadcrumb image="/images/banner/service.png" title="Shopping & Ammenities" />
       <Listing />
     </Layout>
   );

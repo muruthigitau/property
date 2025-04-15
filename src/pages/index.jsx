@@ -1,4 +1,5 @@
 import About from "@/components/about";
+import Category from "@/components/category";
 import AskUs from "@/components/contact/askus";
 import Hero from "@/components/hero";
 import Layout from "@/components/layout";
@@ -13,14 +14,13 @@ const Home = () => {
       {/* Dream */}
       <Layout>
         <Hero />
+        <Category />
         <Featured />
-
-        <About />
-        <Process />
-        <WhyChooseUs />
         <AskUs />
-
-        <Testimonial />
+        <About />
+        <WhyChooseUs />
+        <Process />
+        {/* <Testimonial /> */}
       </Layout>
     </>
   );

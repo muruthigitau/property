@@ -15,7 +15,7 @@ const FooterSection = () => {
                       <h2>Subscribe to Our Newsletter</h2>
                       <p>
                         Stay in the loop with the latest news, events, and
-                        offers from MyTown Karen.
+                        offers from Mytown Karen.
                       </p>
                     </div>
                   </div>
@@ -48,74 +48,72 @@ const FooterSection = () => {
       </div>
       {/* Footer Newsletter End */}
 
-      {/* Mega Footer Start */}
-      <div className="mega-footer">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-4">
-              <div className="footer-about">
-                <div className="footer-logo">
-                  <img src="/images/logo/logo.png" alt="MyTown Karen" />
-                </div>
+        <div className="mega-footer">
+          <div className="container">
+            <div className="row">
+          <div className="col-lg-4">
+            <div className="footer-about">
+              <div className="footer-logo">
+            <img src="/images/logo/logo.png" alt="Mytown Karen" />
+              </div>
 
-                <div className="footer-about-content">
-                  <p>
-                    MyTown Karen – Your go-to destination for shopping, dining,
-                    and more.
-                  </p>
-                </div>
+              <div className="footer-about-content">
+            <p>
+              Mytown Karen – Your go-to destination for shopping, dining,
+              and more.
+            </p>
+              </div>
 
-                <div className="footer-social-links">
-                  <ul>
-                    <li>
-                      <Link to="#">
-                        <i className="fa-brands fa-facebook-f"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#">
-                        <i className="fa-brands fa-instagram"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#">
-                        <i className="fa-brands fa-twitter"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#">
-                        <i className="fa-brands fa-linkedin-in"></i>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+              <div className="footer-social-links">
+              <ul>
+              <li>
+                <a href="https://www.facebook.com/Mytown.Malls" target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fa-facebook-f"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/mytown_karen?igsh=OXBxcWprOGg4YnJp" target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/MytownMalls" target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fa-twitter"></i>
+                </a>
+              </li>
+            </ul>
+
               </div>
             </div>
+          </div>
 
-            <div className="col-lg-3 col-md-6">
-              <div className="footer-contact-info">
-                <h3>Contact Info</h3>
+          <div className="col-lg-3 col-md-6">
+            <div className="footer-contact-info">
+              <h3>Contact Info</h3>
 
-                <div className="footer-contact-box">
-                  <div className="footer-info-box">
-                    <div className="icon-box">
-                      <img src="images/icon-location.svg" alt="" />
-                    </div>
-                    <p>MyTown Karen, Karen Road, Nairobi, Kenya</p>
-                  </div>
+              <div className="footer-contact-box">
+            <div className="footer-info-box">
+              <div className="icon-box">
+                <img src="images/icon-location.svg" alt="" />
+              </div>
+              <p>Mytown Karen, Karen Road, Nairobi, Kenya</p>
+            </div>
 
-                  <div className="footer-info-box">
-                    <div className="icon-box">
-                      <img src="images/icon-phone.svg" alt="" />
-                    </div>
-                    <p>+254 777 123 456</p>
+            <div className="footer-info-box">
+              <div className="icon-box">
+                <img src="images/icon-phone.svg" alt="" />
+              </div>
+                    <p> <a href="tel:+254759089942" className="text-white">0759089942</a></p>
                   </div>
 
                   <div className="footer-info-box">
                     <div className="icon-box">
                       <img src="images/icon-email.svg" alt="" />
                     </div>
-                    <p>info@mytownkaren.co.ke</p>
+                    <p>     
+             
+             <a href="mailto:info@mytown.co.ke" className="text-white">info@mytown.co.ke</a></p>
+               
                   </div>
                 </div>
               </div>
@@ -136,6 +134,9 @@ const FooterSection = () => {
                   </li>
                   <li>
                     <Link to="/offers">Offers</Link>
+                  </li>
+                  <li>
+                    <Link to="/gallery">Gallery</Link>
                   </li>
                 </ul>
               </div>

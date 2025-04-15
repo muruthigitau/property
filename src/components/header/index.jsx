@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import propertyData from "@/data/propertydata";
+import shopData from "@/data/shopData";
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,8 +10,8 @@ const Header = () => {
   const toggleSubmenu = () => setSubmenuOpen((prev) => !prev);
 
   return (
-    <header className="main-header">
-      <div className="header-sticky hide active">
+    <header className="main-header relative z-50">
+      <div className="header-sticky">
         <nav className="py-2">
           <div className="container mx-auto flex flex-wrap items-center justify-between">
             {/* Logo */}
@@ -33,63 +33,37 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="nav-link" to="/listing">
-                    Listing
+                  <Link className="nav-link" to="/offer">
+                    Offers
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav-link" to="/gallery">
+                    Gallery
                   </Link>
                 </li>
                 <li className="nav-item submenu">
-                  <Link className="nav-link" to="#">
-                    Shop
+                  <Link className="nav-link" to="/shop">
+                    Shopping & Amenities
                   </Link>
                   <ul>
-                    {propertyData.map((shop) => (
+                    {shopData.map((shop) => (
                       <li className="nav-item" key={shop.slug}>
                         <Link className="nav-link" to={`/shop/${shop.slug}`}>
-                          {shop.title}
+                          {shop.name}
                         </Link>
                       </li>
                     ))}
                   </ul>
                 </li>
-                {/* <li className="nav-item submenu">
-                  <Link className="nav-link" to="#">
-                    Pages
-                  </Link>
-                  <ul>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/blog">
-                        Blog
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/blog-single">
-                        Blog Single
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/agents">
-                        Agents
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/faq">
-                        FAQs
-                      </Link>
-                    </li>
-                  </ul>
-                </li> */}
-
                 <li>
-                  <Link className="nav-link" to="/contact">
-                    Contact us
-                  </Link>
                 </li>
                 <li className="highlighted-menu">
                   <Link
                     className="nav-link bg-blue-600 text-white px-3 py-1 rounded text-sm"
                     to="/contact"
                   >
-                    Book Now
+                    Contact us
                   </Link>
                 </li>
               </ul>
@@ -102,43 +76,51 @@ const Header = () => {
                 aria-haspopup="true"
                 role="button"
                 tabIndex="0"
-                className={`slicknav_btn focus:outline-none ${
-                  isMobileMenuOpen ? "slicknav_open" : "slicknav_collapsed"
-                }`}
+                className="slicknav_btn focus:outline-none p-2 z-50 relative"
               >
-                <span className="sr-only">Open menu</span>
-                <div className="space-y-1">
-                  <span className="block w-6 h-0.5 bg-current"></span>
-                  <span className="block w-6 h-0.5 bg-current"></span>
-                  <span className="block w-6 h-0.5 bg-current"></span>
-                </div>
+                <span className="sr-only">Toggle menu</span>
+                {isMobileMenuOpen ? (
+                  // X icon
+                  <svg
+                    className="h-6 w-6 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  // Hamburger icon
+                  <div className="space-y-1">
+                    <span className="block w-6 h-0.5 bg-current"></span>
+                    <span className="block w-6 h-0.5 bg-current"></span>
+                    <span className="block w-6 h-0.5 bg-current"></span>
+                  </div>
+                )}
               </button>
             </div>
           </div>
         </nav>
 
         {/* Mobile Menu */}
-        <div className="responsive-menu lg:hidden">
+        <div className="responsive-menu lg:hidden z-50 relative">
           <div className="slicknav_menu">
             <ul
               className={`slicknav_nav ${
                 isMobileMenuOpen ? "block" : "hidden"
               }`}
-              style={{ display: isMobileMenuOpen ? "block" : "none" }}
               aria-hidden={!isMobileMenuOpen}
               role="menu"
             >
-              <li className="submenu slicknav_parent">
-                <div
-                  role="menuitem"
-                  aria-haspopup="true"
-                  tabIndex="-1"
-                  className="slicknav_item slicknav_row"
-                >
-                  <Link className="nav-link" to="./" tabIndex="-1">
-                    Home
-                  </Link>
-                </div>
+              <li>
+                <Link className="nav-link" to="/" role="menuitem" tabIndex="-1">
+                  Home
+                </Link>
               </li>
               <li>
                 <Link
@@ -153,25 +135,23 @@ const Header = () => {
               <li>
                 <Link
                   className="nav-link"
-                  to="/listing"
+                  to="/offer"
                   role="menuitem"
                   tabIndex="-1"
                 >
-                  Listing
+                  Offers
                 </Link>
               </li>
               <li>
                 <Link
                   className="nav-link"
-                  to="/property"
+                  to="/gallery"
                   role="menuitem"
                   tabIndex="-1"
                 >
-                  Property
+                  Gallery
                 </Link>
               </li>
-
-              {/* Submenu Toggle */}
               <li
                 className={`nav-item submenu slicknav_parent ${
                   isSubmenuOpen ? "slicknav_open" : "slicknav_collapsed"
@@ -185,7 +165,7 @@ const Header = () => {
                   onClick={toggleSubmenu}
                 >
                   <span className="nav-link flex items-center">
-                    Pages{" "}
+                    Shopping & Amenities{" "}
                     <span className="ml-1">{isSubmenuOpen ? "▾" : "▸"}</span>
                   </span>
                 </div>
@@ -196,26 +176,17 @@ const Header = () => {
                     className="pl-4 mt-1 transition-all duration-300 ease-in-out"
                     aria-hidden="false"
                   >
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/blog" tabIndex="-1">
-                        Blog
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/blog" tabIndex="-1">
-                        Blog Single
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/agents" tabIndex="-1">
-                        Agents
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/faq" tabIndex="-1">
-                        FAQs
-                      </Link>
-                    </li>
+                    {shopData.map((shop) => (
+                      <li className="nav-item" key={shop.slug}>
+                        <Link
+                          className="nav-link"
+                          to={`/shop/${shop.slug}`}
+                          tabIndex="-1"
+                        >
+                          {shop.name}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 )}
               </li>
@@ -231,7 +202,12 @@ const Header = () => {
                 </Link>
               </li>
               <li className="highlighted-menu">
-                <Link className="nav-link" to="#" role="menuitem" tabIndex="-1">
+                <Link
+                  className="nav-link bg-blue-600 text-white px-3 py-1 rounded text-sm"
+                  to="/contact"
+                  role="menuitem"
+                  tabIndex="-1"
+                >
                   Book Now
                 </Link>
               </li>
@@ -239,6 +215,14 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/* Background Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          onClick={toggleMenu}
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+        />
+      )}
     </header>
   );
 };

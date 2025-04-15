@@ -1,242 +1,82 @@
-import { useParams, Link } from "react-router-dom";
-import propertyData from "@/data/propertydata";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Shop = () => {
-  const { slug } = useParams();
-
-  if (!slug) return <p>Loading...</p>;
-
-  const shop = propertyData.find((item) => item.slug === slug);
-
-  if (!shop) {
-    return <p>Shop not found</p>;
-  }
-
+const ShopCategory = ({ category }) => {
   return (
     <div className="page-property-single">
       <div className="container">
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-lg-12">
+            {/* Category Overview */}
             <div className="property-single-content">
-              {/* Shop Photos Slider */}
-              <div
-                className="property-photos-slider wow fadeInUp"
-                data-wow-delay="0.25s"
-              >
-                <Swiper
-                  modules={[Pagination, Autoplay]}
-                  spaceBetween={10}
-                  slidesPerView={1}
-                  pagination={{ clickable: true }}
-                  autoplay={{ delay: 3000 }}
-                  loop={true}
-                  className="property-photo-swiper"
-                >
-                  {shop.images.map((src, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="property-photo-item">
-                        <figure className="image-anime">
-                          <img
-                            src={src}
-                            alt={`shop-${index}`}
-                            width={709}
-                            height={400}
-                          />
-                        </figure>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
+             
+              <div class="about-property wow fadeInUp" data-wow-delay="0.75s" >
+							<div class="property-single-subtitle">
+								<h3>Overview</h3>
+							</div>
 
-              {/* Overview */}
-              <div
-                className="property-overview wow fadeInUp"
-                data-wow-delay="0.5s"
-              >
+							<div class="about-property-content">
+              <p>{category?.description}</p>
+								
+							</div>
+						</div>
+
+              {/* Shops in Category */}
+              <div className="property-listing mt-5">
                 <div className="property-single-subtitle">
-                  <h3>Overview</h3>
+                  {/* <h3>Shops</h3> */}
                 </div>
-                <div className="property-overview-box">
-                  {[
-                    {
-                      icon: "icon-badroom.svg",
-                      label: "Units Available",
-                      value: shop.unitsAvailable,
-                    },
-                    {
-                      icon: "icon-bathroom.svg",
-                      label: "Parking Spaces",
-                      value: shop.parkingSpaces,
-                    },
-                    {
-                      icon: "icon-area.svg",
-                      label: "Store Size",
-                      value: shop.storeSize,
-                    },
-                    {
-                      icon: "icon-garage.svg",
-                      label: "Year Built",
-                      value: shop.yearBuilt,
-                    },
-                  ].map(({ icon, label, value }, index) => (
-                    <div className="property-overview-item" key={index}>
-                      <div className="icon-box">
-                        <img
-                          src={`/images/${icon}`}
-                          alt={label}
-                          width={24}
-                          height={24}
-                        />
-                      </div>
-                      <div className="property-overview-content">
-                        <h3>{label}</h3>
-                        <p>{value}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
-              {/* About Shop */}
-              <div
-                className="about-property wow fadeInUp"
-                data-wow-delay="0.75s"
-              >
-                <div className="property-single-subtitle">
-                  <h3>About This Shop</h3>
-                </div>
-                <div className="about-property-content">
-                  <p>{shop.description}</p>
-                  <div className="about-property-cta">
-                    <Link to="/contact" className="btn-default btn-border">
-                      Contact us
-                    </Link>
-                    <a href={`tel:${shop.phone}`} className="btn-default">
-                      <i className="fa-solid fa-phone-volume"></i> {shop.phone}
-                    </a>
-                  </div>
-                </div>
-              </div>
+                {category?.shops?.length > 0 ? (
+                  <div className="row">
+                    {category.shops.map((shop) => (
+                      <div className="col-md-6 col-lg-4 mb-4" key={shop.id}>
+                        <div className="property-item wow fadeInUp" data-wow-delay="0.2s">
+                          {/* Property Item Header */}
+                          <div className="property-header">
+                            <figure className="image-anime">
+                              <img src={shop.images[0]} alt={shop.title}  className="img-fluid !h-[200px] md:!h-[250px] lg:!h-[300px] object-cover" />
+                            </figure>
+                          </div>
 
-              {/* Features & Amenities */}
-              <div
-                className="property-amenities wow fadeInUp"
-                data-wow-delay="1s"
-              >
-                <div className="property-single-subtitle">
-                  <h3>Features & Amenities</h3>
-                </div>
-                <div className="property-amenities-box">
-                  <ul>
-                    {shop.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                          {/* Property Item Body */}
+                          <div className="property-body">
+                            <h3>{shop.title}</h3>
+                            <p>{shop.location}</p>
 
-              {/* Map Location */}
-              <div
-                className="property-map-location wow fadeInUp"
-                data-wow-delay="1.25s"
-              >
-                <div className="property-single-subtitle">
-                  <h3>Map Location</h3>
-                </div>
-                <div className="property-map-iframe">
-                  <iframe
-                    src={shop.mapEmbedUrl}
-                    width="600"
-                    height="450"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
+                            <div className="property-meta">
+                            <p>{shop?.description}</p>
+                              {/* {shop.features?.slice(0, 4).map((feature, index) => (
+                                <div className="property-amenity-item" key={index}>
+                                  <span>• {feature}</span>
+                                </div>
+                              ))} */}
+                            </div>
+                          </div>
 
-          {/* Sidebar */}
-          <div className="col-lg-4">
-            <div className="porperty-single-sidebar">
-              {/* Other Details */}
-              <div
-                className="property-info-box wow fadeInUp"
-                data-wow-delay="0.25s"
-              >
-                <h3>Other Details</h3>
-                <div className="property-info-lists">
-                  {[
-                    {
-                      icon: "icon-property-location.svg",
-                      value: shop.location,
-                      alt: "Location",
-                    },
-                    {
-                      icon: "icon-property-phone.svg",
-                      value: shop.phone,
-                      alt: "Phone",
-                    },
-                  ].map(({ icon, value, alt }, index) => (
-                    <div className="property-info-item" key={index}>
-                      <div className="icon-box">
-                        <img
-                          src={`/images/${icon}`}
-                          alt={alt}
-                          width={24}
-                          height={24}
-                        />
-                      </div>
-                      <p>{value}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Inquiry Form */}
-              <div
-                className="property-inquiry-box wow fadeInUp"
-                data-wow-delay="0.5s"
-              >
-                <h3>Send Inquiry</h3>
-                <div className="property-inquiry-form">
-                  <form id="contactForm" action="#" method="POST">
-                    <div className="row">
-                      {["Name", "Email", "Phone"].map((placeholder, index) => (
-                        <div className="form-group col-md-12 mb-3" key={index}>
-                          <input
-                            type={placeholder === "Email" ? "email" : "text"}
-                            name={placeholder.toLowerCase()}
-                            className="form-control"
-                            placeholder={placeholder}
-                            required
-                          />
+                          {/* Property Item Footer */}
+                          <div className="property-footer">
+                            <Link to={`/shops/${shop.slug}`} className="btn-default">
+                              View More
+                            </Link>
+                            {shop.instaLink && (
+                          <a
+                            href={shop.instaLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 hover:from-pink-600 hover:via-orange-600 hover:to-yellow-600 text-white text-2xl w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-110"
+                          >
+                            <i className="fa-brands fa-instagram"></i>
+                          </a>
+                        )}
+                          </div>
                         </div>
-                      ))}
-                      <div className="form-group col-md-12 mb-3">
-                        <textarea
-                          name="msg"
-                          className="form-control"
-                          rows="4"
-                          placeholder="Write a Message"
-                          required
-                        ></textarea>
                       </div>
-                      <div className="col-md-12 text-center">
-                        <button type="submit" className="btn-default">
-                          Send Message
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="mt-3">No shops found in this category.</p>
+                )}
               </div>
             </div>
           </div>
@@ -246,4 +86,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default ShopCategory;

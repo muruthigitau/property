@@ -13,11 +13,11 @@ const AskUs = () => {
                   {/* <!-- Infobar Content Start --> */}
                   <div className="cta-content">
                     <h2 className="text-anime">
-                      Need Help? Talk to Our Expert.
+                      Limited Spaces Available! Book Your Spot Now.
                     </h2>
                     <p className="wow fadeInUp">
-                      Contact us for assistance with your property search or any
-                      inquiries.
+                      Hurry up! There are limited spaces remaining. Secure your
+                      booking today before they are all taken.
                     </p>
                   </div>
                   {/* <!-- Infobar Content End --> */}
@@ -30,15 +30,11 @@ const AskUs = () => {
                       href="tel:+254777123456"
                       className="btn-default btn-border"
                     >
-                      <i className="fa-solid fa-phone-volume"></i> +254 777 444
-                      777
+                      <i className="fa-solid fa-phone-volume"></i> +254 759 089 942
                     </a>
-                    <a
-                      href="mailto:info@mytownkaren.com"
-                      className="btn-default"
-                    >
-                      Contact Now
-                    </a>
+                    <Link to="/contact" className="btn-default">
+                      Book Now
+                    </Link>
                   </div>
                   {/* <!-- CTA Button End --> */}
                 </div>

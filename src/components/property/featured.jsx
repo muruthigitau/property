@@ -3,7 +3,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import propertyData from "@/data/propertydata";
+import AnimatedText from "../common/Animated";
+import shopData from "@/data/shopData";
+
+// Flatten all shops from categories
+const allShops = shopData.flatMap(category =>
+  category.shops.map(shop => ({
+    ...shop,
+    category: category.name,
+    image: shop.images?.[0] || category.image, // fallback if no image
+  }))
+);
 
 const Featured = () => {
   return (
@@ -13,8 +23,12 @@ const Featured = () => {
           <div className="col-md-12">
             {/* Section Title Start */}
             <div className="section-title">
-              <h3 className="wow fadeInUp">Explore</h3>
-              <h2 className="text-anime">What We Offer</h2>
+            <h3 className="wow fadeInUp">Our Picks</h3>
+            <AnimatedText
+                    sentence="Shops You'll Love"
+                    className="text-anime"
+                    style={{ fontSize: '24px', color: '#333' }}
+                />
             </div>
             {/* Section Title End */}
           </div>
@@ -31,7 +45,7 @@ const Featured = () => {
                   el: ".swiper-pagination",
                 }}
                 autoplay={{
-                  delay: 3000,
+                  delay: 1000,
                   disableOnInteraction: false,
                 }}
                 loop={true}
@@ -44,16 +58,18 @@ const Featured = () => {
                 }}
                 className="swiper"
               >
-                {propertyData.map((property) => (
-                  <SwiperSlide key={property.slug} className="swiper-slide">
+                {allShops.map((shop) => (
+                  <SwiperSlide key={shop.slug} className="swiper-slide">
                     {/* Property Item Start */}
                     <div className="property-item">
                       {/* Property Item Header Start */}
                       <div className="property-header">
                         <figure className="image-anime">
                           <img
-                            src={property.images?.[0]}
-                            alt={property.title}
+                            src={shop.image}
+                            alt={shop.title}
+                            className="img-fluid !h-[200px] md:!h-[250px] lg:!h-[300px] object-cover"
+                            // style={{ height: "00px" }}
                           />
                         </figure>
                       </div>
@@ -61,33 +77,41 @@ const Featured = () => {
 
                       {/* Property Item Body Start */}
                       <div className="property-body">
-                        <h3>{property.title}</h3>
-                        <p>{property.location}</p>
+                        <h3>{shop.title}</h3>
+                        <p>{shop.location}</p>
 
                         <div className="property-meta">
-                          {property.features
-                            ?.slice(0, 4)
-                            .map((feature, index) => (
-                              <div
-                                className="property-amenity-item"
-                                key={index}
-                              >
-                                <span>• {feature}</span>
-                              </div>
-                            ))}
+                        <p>
+                          {shop?.description?.split(' ').slice(0, 9).join(' ')}{shop?.description?.split(' ').length > 9 && '...'}
+                        </p>
+
+                        
                         </div>
                       </div>
                       {/* Property Item Body End */}
 
                       {/* Property Item Footer Start */}
                       <div className="property-footer">
-                        <p className="property-price">{property.price}</p>
+                      
                         <Link
-                          to={`/properties/${property.slug}`}
+                          to={`/shops/${shop.slug}`}
                           className="btn-default"
                         >
                           View More
                         </Link>
+
+                        {shop.instaLink && (
+                          <a
+                            href={shop.instaLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 hover:from-pink-600 hover:via-orange-600 hover:to-yellow-600 text-white text-2xl w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-110"
+                          >
+                            <i className="fa-brands fa-instagram"></i>
+                          </a>
+                        )}
+
+
                       </div>
                       {/* Property Item Footer End */}
                     </div>
