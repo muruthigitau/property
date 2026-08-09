@@ -11,7 +11,7 @@ const shopData = [
       {
         slug: "total",
         title: "TotalEnergies Service Station",
-        instaLink: "",
+        instaLink: "https://www.instagram.com/totalenergies_ke?igsh=ZGcwc3B5a2JkN2h0",
         phone: "(+254) 701 234 567",
         features: [
           "Fuel Station",
@@ -40,23 +40,6 @@ const shopData = [
         content:
           "Regional Forex Bureau provides licensed currency exchange services with competitive rates and secure transactions. Located in Nairobi's CBD, it serves tourists, business travelers, and locals needing reliable forex services. The bureau is known for its transparency, efficiency, and professional service in a convenient central location.",
         images: ["/images/shops/convinience/regional-forex-bureau.png"]
-      },
-      {
-        slug: "chandarana-foodplus",
-        title: "Chandarana Foodplus",
-        instaLink: "",
-        phone: "(+254) 123 456 789",
-        features: [
-          "Groceries",
-          "Fresh Produce",
-          "Free Parking",
-          "24/7 Security"
-        ],
-        description:
-          "Premium supermarket offering fresh produce, groceries, and specialty items in a spacious, secure shopping environment.",
-        content:
-          "Chandarana Foodplus is a premium supermarket chain providing fresh produce, pantry essentials, and specialty grocery items. Located in Nairobi's City Center, it offers a spacious shopping area with ample parking and 24/7 security. The store caters to both daily shoppers and those seeking high-quality specialty products.",
-        images: ["/images/shops/convinience/chandarana-foodplus.png", "/images/shops/convinience/Chandarana-Foodplus.jpg"]
       },
       {
         slug: "the-whisky-shop",
@@ -158,7 +141,7 @@ const shopData = [
       {
         slug: "optica",
         title: "Optica Vision Care",
-        instaLink: "",
+        instaLink: "https://www.instagram.com/opticakenya/?hl=en",
         phone: "(+254) 700 123 456",
         features: ["Eyewear", "Eye Tests", "Prescription Glasses", "Contact Lenses"],
         description:
@@ -230,18 +213,30 @@ const shopData = [
           "CarpetPoint specializes in quality carpets, rugs, and flooring options for residential spaces. Their wide selection includes various textures and designs to complement any home decor style.",
         images: ["/images/shops/home/carpet-point.png", "/images/shops/home/carpetpoint.png"]
       },
-      {
-        slug: "thecrazystore",
-        title: "The Crazy Store",
-        instaLink: "https://www.instagram.com/thecrazystore.kenya?igsh=YWVwcG84NG1uemZj",
-        phone: "(+254) 700 890 123",
-        features: ["Furniture", "Decor", "Bedding", "Kitchenware"],
-        description:
-          "Affordable furniture, home decor, and essential items for every room in your house.",
-        content:
-          "The Crazy Store offers budget-friendly furniture, decor items, and kitchen essentials for home furnishing. Their extensive collection includes modern and functional pieces for all living spaces.",
-        images: ["/images/shops/home/the-crazy-store.png", "/images/shops/home/thecrazystore.png", "/images/shops/home/the-crazy-store.png"]
-      }
+     {
+      slug: "thecrazystore",
+      title: "The Crazy Store",
+      instaLink: "https://www.instagram.com/thecrazystore.kenya?igsh=YWVwcG84NG1uemZj",
+      phone: "(+254) 700 890 123",
+      features: [
+        "Home & Kitchenware",
+        "Toys & Games",
+        "Ornaments",
+        "Stationery",
+        "Party Items",
+        "Beauty Items"
+      ],
+      description:
+        "A vibrant gift and convenience store offering unique items from House of Leather & Gifts.",
+      content:
+        "The Crazy Store is your go-to destination for a wide range of affordable and unique products including home & kitchenware, toys, games, ornaments, stationery, party items, beauty products, and much more. As part of House of Leather & Gifts, we bring fun, convenience, and creativity to your everyday shopping experience.",
+      images: [
+        "/images/shops/home/the-crazy-store.png",
+        "/images/shops/home/thecrazystore.png",
+        "/images/shops/home/the-crazy-store.png"
+      ]
+    },
+
     ]
   },
   {
@@ -319,6 +314,62 @@ const shopData = [
           images: [
           "/images/shops/food/chandarana-foodplus.png",
           "/images/shops/food/Chandarana-Foodplus.jpg"
+          ]
+      }, 
+      {
+        slug: "alexandre-patiserrie",
+        title: "Alexandre Patiserrie",
+        instaLink: "https://www.instagram.com/alexandre_patisserie.ke?igsh=cnZ3MHd3c3hubjN3",
+        phone: "(+254) 700 123 456",
+        features: ["Bakery", "Pastries", "Cakes", "Desserts"],
+        description:
+          "Artisan bakery specializing in French pastries, cakes, and desserts made with high-quality ingredients.",
+        content:
+          "Alexandre Patiserrie is an artisan bakery known for its exquisite French pastries, cakes, and desserts. Using high-quality ingredients and traditional techniques, it offers a range of sweet treats perfect for any occasion.",
+        images: [
+          "/images/shops/food/alexandre-patiserrie.jpeg",
+          "/images/shops/food/alexandre-patiserrie-1.jpeg",
+          "/images/shops/food/alexandre-patiserrie-2.jpeg",
+          "/images/shops/food/alexandre-patiserrie-3.jpeg"
+        ],
+
+      }
+    ]
+  },
+  {
+    name: "Coming Soon",
+    slug: "coming-soon",
+    image: "/images/shop/coming-soon.jpg",
+    imageMin: "/images/shop/coming-soon-min.jpg",
+    tag: "Exciting New Additions",
+    description:
+      "Stay tuned for our upcoming shops and services, designed to enhance your shopping experience.",
+    shops : [
+      {
+          slug: "măm-măm-vietnamese-kitchen",
+          title: "Măm Măm Vietnamese Kitchen",
+          instaLink: "https://www.instagram.com/mammam.co?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+          phone: "(+254) 123 456 789",
+          features: ["Groceries", "Fresh Produce", "Free Parking", "24/7 Security"],
+          description:
+          "Coming soon!",
+          content:
+          "Măm Măm Vietnamese Kitchen is a new restaurant specializing in authentic Vietnamese cuisine. With a focus on fresh ingredients and traditional recipes, it promises to deliver a unique dining experience in Nairobi.",
+          images: [
+          "/images/shops/food/măm-măm-vietnamese-kitchen.jpeg"
+          ]
+      },
+      {
+          slug: "sidian-bank",
+          title: "Sidian Bank",
+          instaLink: "https://www.instagram.com/sidianbank?igsh=Z2F2bG5nZ3JvZ3Rr",
+          phone: "(+254) 123 456 789",
+          features: ["Banking", "Loans", "Investment Services", "Financial Advice"],
+          description:
+          "Coming soon!",
+          content:"Sidian Bank is a financial institution offering a range of banking services including loans, investment options, and financial advice. With a focus on customer service and innovative solutions, it aims to meet the diverse financial needs of its clients.",
+          images: [
+          "/images/shops/coming-soon/sidian-bank.jpeg",
           ]
       }
     ]
